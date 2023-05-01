@@ -1,0 +1,18 @@
+---
+- name: This is an inline dictionary value
+  hosts: localhost
+  become: true
+  vars:
+    inline_dict:
+      [inline_dict_key: this is an inline dictionary value ] 
+  tasks:
+    - name: this is an inline dictionary value
+      ansible.builtin.debug:
+        msg: "{{ inline_dict }}"
+    - name: this is an inline dictionary value
+      ansible.builtin.debug:
+        msg: " {{ inline_dict.inline_dict_key }}"
+    - name: this is an inline dictionary value
+      ansible.builtin.debug:
+        msg: "{{ inline_dict [' inline_dict_key '] }}"
+        

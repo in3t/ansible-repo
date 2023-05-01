@@ -1,0 +1,11 @@
+---
+- name: clone the git repo in localhost
+  hosts: localhost
+  become: true
+  tasks:
+    - name: clone the git rep in localhost
+      ansible.builtin.git:
+        repo: https://github.com/sateesh5/Devops.git
+        dest: /home/ubuntu/ansible
+
+

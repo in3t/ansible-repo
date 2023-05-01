@@ -1,0 +1,7 @@
+--- 
+- name: ansible role demo
+  hosts: localhost
+  become: true
+  roles:
+    - role: lucab85.ansible_role_log4shell
+      detector_path: /home/ubuntu/ansible/ansible-repo/roles

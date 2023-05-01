@@ -1,0 +1,12 @@
+---
+- name: this playbook for vault demos
+  hosts: localhost
+  become: true
+  tasks:
+    - name: include vault files
+      ansible.builtin.include_vars:
+        file: mypassword.yml
+
+    - name: print mypassword value
+      ansible.builtin.debug:
+        var: mypassword

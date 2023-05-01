@@ -1,0 +1,20 @@
+---
+- name: this playbook for variable sample
+  hosts: localhost
+  become: true
+  vars:
+    dict:
+      dict_key: this is dictionary value
+  tasks:
+    - name: test named dictionary value
+      ansible.builtin.debug:
+        msg: "{{ dict }}"
+    - name: test named dictionary key value
+      ansible.builtin.debug:
+        msg: "{{ dict.dict_key }}"
+    - name: test named dictionary key value with python brackets
+      ansible.builtin.debug:
+        msg: "{{ dict['dict_key'] }}"
+        
+
+

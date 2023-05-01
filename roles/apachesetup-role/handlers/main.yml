@@ -1,0 +1,6 @@
+---
+# handlers file for apachesetup-role
+    - name: restart service httpd
+      ansible.builtin.service:
+        name: apache2
+        state: started

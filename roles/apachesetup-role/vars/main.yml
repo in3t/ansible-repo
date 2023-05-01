@@ -1,0 +1,3 @@
+---
+# vars file for apachesetup-role
+port: 8082

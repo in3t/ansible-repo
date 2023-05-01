@@ -1,0 +1,28 @@
+---
+- name: install tomcat 
+  hosts: localhost
+  become: true
+  tasks:
+    - name: install java first 
+      ansible.builtin.apt:
+        name: default-jdk
+        state: present
+
+    - name: download the tomcat from web 
+      ansible.builtin.get_url:
+        url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.74/bin/apache-tomcat-9.0.74.tar.gz
+        dest: /tmp/
+        mode: 0755
+
+    - name: unarchive the tar file
+      ansible.builtin.unarchive:
+        src: /tmp/apache-tomcat-9.0.74.tar.gz
+        dest: /tmp/
+        remote_src: no
+
+    - name: start the tomcat service
+      ansible.builtin.shell: ./startup.sh
+      args:
+        chdir: /tmp/apache-tomcat-9.0.74/bin/
+
+

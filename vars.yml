@@ -1,0 +1,10 @@
+---
+- name: create user using ansible variable
+  hosts: localhost
+  become: true
+  vars_files: 
+    - user.yml
+  tasks:
+    - name: creating a user {{ autosys }}
+      user:
+        name: "{{ user }}"

@@ -1,0 +1,48 @@
+---
+- name: creating file in tmp location
+  hosts: localhost
+  become: true
+  tasks:
+    - name: create a file in tmp location
+      ansible.builtin.file:
+        path: /tmp/testfile.txt
+        state: touch
+      tags: tag1
+
+    - name: create a directory as test
+      ansible.builtin.file:
+        path: /tmp/test
+        state: directory
+      tags: tag2
+
+    - name: display hello
+      ansible.builtin.debug:
+        msg: " Hello World"
+      tags: tag3
+
+    - name: display welcome to world
+      ansible.builtin.debug:
+        msg: " Welcome to Ansible world "
+      tags: tag4
+
+    - name: install git
+      ansible.builtin.apt:
+        name: git
+        state: present
+      tags: tag5
+
+    - name: download apache-tomcat
+      ansible.builtin.get_url:
+        url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
+        dest: /tmp/test/
+        mode: 0644
+      tags: tag6
+
+    - name: copy file
+      ansible.builtin.copy:
+        src: /tmp/test/apache-tomcat-10.1.8.tar.gz
+        dest: /opt/
+        mode: 0755
+      tags: tag7
+
+

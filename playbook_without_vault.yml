@@ -1,0 +1,12 @@
+---
+- name: this playbook without vault key
+  hosts: localhost
+  become: true
+  tasks:
+    - name: this playbook without vault key
+      ansible.builtin.include_vars:
+        file: mypassword_demo.yml
+
+    - name: print the vault key 
+      ansible.builtin.debug:
+        var: mypassword_demo

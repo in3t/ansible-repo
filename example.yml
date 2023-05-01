@@ -1,0 +1,10 @@
+---
+- name:
+  hosts: localhost
+  become: true
+  vars:
+    myvar: " Welcome to Ansible World"
+  tasks:
+    - name: print var
+      ansible.builtin.debug:
+        msg: "{{ myvar }}"
