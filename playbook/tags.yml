@@ -1,0 +1,17 @@
+---
+- name: creating file in tmp location
+  hosts: localhost
+  become: true
+  tasks:
+    - name: create a file in tmp location
+      ansible.builtin.file:
+        path: /tmp/testfile.txt
+        state: touch
+      tags: tag1
+
+    - name: create a directory as test
+      ansible.builtin.file:
+        path: /tmp/test
+        state: directory
+      tags: tag2
+
