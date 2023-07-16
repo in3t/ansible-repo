@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: install git in ubuntu family
+      ansible.builtin.apt:
+        name: git 
+        state: present
+      when: ansible_os_family="Ubuntu"
+      
+    - name: install git in RHEL
+      ansible.builtin.yum:
+        name: git
+        state: present
+     when: ansible_os_family="RHEL"

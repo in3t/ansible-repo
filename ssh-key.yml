@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks: 
+    - name: Set authorized key in alternate location
+      ansible.posix.authorized_key:
+        user: charlie
+        state: present
+        key: "{{ lookup('file', '/home/sateesh/.ssh/id_rsa.pub') }}"
+        path: /etc/ssh/authorized_keys/charlie
+        manage_dir: false

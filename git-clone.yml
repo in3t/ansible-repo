@@ -1,0 +1,11 @@
+---
+ - hosts: all
+   tasks:
+   - name: Clone a github repository
+     ansible.builtin.git:
+       repo: https://github.com/sateesh5/ansible-repo
+       dest: /home/ec2-user/ansible
+       clone: yes
+       update: yes
+
+

@@ -10,3 +10,15 @@
     - name: print mypassword value
       ansible.builtin.debug:
         var: mypassword
+
+
+--- 
+- name: Playbook for ansible vault
+  hosts: all 
+  vars: 
+    mypassword: mypasswordsecrets
+  tasks:
+    - name: print the my password 
+      ansible.builtin.debug: 
+        var: mypassword
+        

@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  tasks:
+    - name: create file in tmp directory 
+      ansible.builtin.file:
+        path: /tmp/testfile.txt
+        state: touch
+        mode: 0744
+      tags: tag1
+      
+    - name: copy file from tmp to opt dir
+      ansible.builtin.copy:
+        src: /tmp/testfile.txt
+        dest: /opt/
+      tags: tag2

@@ -1,0 +1,15 @@
+---
+- hosts: locahost
+  become: true
+  tasks:
+    - name: install wget package in remote server
+      ansible.builtin.yum:
+        name: wget
+        state: present
+      when: ansible_os_family="RHEL"
+      
+    - name: iinstall wget package in remote server
+      ansible.builtin.apt:
+        name: wget
+        state: present
+      when: ansible_os_family="Ubuntu"
