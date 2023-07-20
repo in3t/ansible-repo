@@ -1,0 +1,37 @@
+---
+# tasks file for apache
+- name: install package 
+  ansible.builtin.yum:
+    name: httpd 
+    state: installed
+  when: ansible_os_family== "RedHat"
+
+- name: install apache2
+  ansible.builtin.apt:
+    name: apache2
+    state: present 
+  when: ansible_os_family== "Debian"
+
+- name: copy index.html
+  ansible.builtin.copy: 
+    src: /opt/ansible/index.html
+    dest: /var/www/html 
+    mode: 0666
+
+- name: ensure the default Apache port is {{ port }} on ubuntu
+  ansible.builtin.lineinfile:
+    path: /etc/apache2/ports.conf
+    regexp: '^Listen'
+    insertafter: "# /ect/apache2/sites-enabled/000-default.conf"
+    line: Listen {{ port }}
+  when: ansible_os_family == "Debian"
+  notify: restart apache2
+
+- name: ensure the default Apache port is {{ port }} on ubuntu
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^Listen'
+    insertafter: '^#Listen'
+    line: Listen {{ port }}
+  when: ansible_os_family == "RedHat"
+  notify: restart apache

@@ -1,0 +1,11 @@
+---
+- name: command module demo
+  hosts: all
+  become: true
+  tasks:
+    - name: list file(s) and folder(s)
+      ansible.builtin.shell: "ls -lrt" 
+      register: coomand_output
+    - name: command output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines

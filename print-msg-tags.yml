@@ -1,5 +1,5 @@
 ---
-  - hosts: 192.168.1.8
+  - hosts: all 
     tasks:
       - name: print sample messages
         ansible.builtin.debug:
@@ -13,3 +13,10 @@
           state: touch
           mode: 0744
 
+        tags: tag2
+
+      - name: download file from web url
+        ansible.builtin.get_url:
+          url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.78/bin/apache-tomcat-9.0.78.tar.gz
+          dest: /tmp/
+        tags: tag3

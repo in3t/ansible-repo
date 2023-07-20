@@ -1,7 +1,6 @@
 ---
 - hosts: all
   tasks:
-  become: true
-    - name: ansible limit for running playbook on single machine
+    - name: using ansible limit module
       ansible.builtin.debug:
-         msg: "Welcome to Ansible World"
+        msg: "Welcome to the ansible world"
