@@ -1,0 +1,11 @@
+---
+- name: git checkout demo
+  hosts: all
+  become: true
+  tasks:
+    - name: Just ensuring the repo checkout exists
+      ansible.builtin.git:
+        repo: 'https://github.com/sateesh5/Gitcommands.git'
+        dest: /tmp/
+        clone: yes
+        update: yes

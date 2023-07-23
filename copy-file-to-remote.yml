@@ -1,0 +1,12 @@
+---
+- name: fetch module demo
+  hosts: all
+  become: true
+  vars:
+    log_file: "/tmp/apache-tomcat-10.1.11.tar.gz"
+    dump_dir: "/tmp/"
+  tasks:
+    - name: copy file from remote hosts
+      ansible.builtin.copy:
+        src: "{{ log_file }}"
+        dest: "{{ dump_dir }}"
