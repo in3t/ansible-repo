@@ -1,0 +1,16 @@
+---
+- name: register module demo
+  hosts: localhost
+  become: true
+  tasks: 
+    - name: run a command uptime
+      ansible.builtin.command: uptime
+      register: server_uptime
+    - name: Inspect the server_uptime variable
+      ansible.builtin.debug:
+        var: server_uptime 
+    - name: shows server uptime
+      ansible.builtin.debug:
+        msg: "{{ server_uptime.stdout }}"
+          
+        
