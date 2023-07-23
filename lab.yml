@@ -1,0 +1,16 @@
+---
+- name: display memory
+  hosts: localhost
+  become: true
+  tasks:
+    - name: display memory
+      ansible.builtin.command: free -h
+      register: memory_display
+
+    - name: Inspect the memory details variable
+      ansible.builtin.debug:
+        var: memory_display
+
+    - name:  display ipv4 address
+      ansible.builtin.debug:
+        msg: IPv4 address is {{ ansible_facts.default_ipv4.address }}
