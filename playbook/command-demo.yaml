@@ -1,0 +1,11 @@
+---
+- name: command module demo
+  hosts: localhost
+  become_user: root
+  tasks:
+    - name: check server uptime
+      ansible.builtin.command: uptime
+      register: coomand_output
+    - name: command output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines
