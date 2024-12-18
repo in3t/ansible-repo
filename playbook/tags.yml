@@ -1,6 +1,6 @@
 ---
 - name: creating file in tmp location
-  hosts: localhost
+  hosts: all
   become: true
   gather_facts: false
   tasks:
