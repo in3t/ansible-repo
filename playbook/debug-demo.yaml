@@ -1,0 +1,9 @@
+---
+- name: debug module demo
+  hosts: localhost
+    #  gather_facts: no
+  become_user: root
+  tasks:
+    - name: debug messages 
+      ansible.builtin.debug: 
+        msg: "Welcome to Ansible World"
