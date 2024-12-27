@@ -6,4 +6,4 @@
     - name: clone git repo in localhost
       ansible.builtin.git: 
         repo: https://github.com/sateesh5/mslearn-tailspin-spacegame-web.git
-        dest: /home/semaphore
+        dest: /home/semaphore/git
