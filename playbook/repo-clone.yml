@@ -1,0 +1,9 @@
+---
+- name: this playbook is demo for git repo clone in localhost
+  hosts: localhost
+  become_user: root 
+  tasks: 
+    - name: clone git repo in localhost
+      ansible.builtin.git: 
+        repo: https://github.com/sateesh5/mslearn-tailspin-spacegame-web.git
+        dest: /tmp
