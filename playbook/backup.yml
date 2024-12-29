@@ -7,4 +7,4 @@
       ansible.builtin.synchronize:
         src: /tmp/testfile.txt
         dest: /tmp/test
-        mode: 0777
+        mode: pull
