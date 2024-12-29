@@ -5,6 +5,6 @@
   tasks: 
     - name: backup file with rsync 
       ansible.builtin.synchronize:
-        srs: /tmp/testfile.txt
+        src: /tmp/testfile.txt
         dest: /tmp/test
         mode: backup 
