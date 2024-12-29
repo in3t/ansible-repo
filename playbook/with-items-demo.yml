@@ -1,0 +1,16 @@
+---
+- name: install multiple packages
+  hosts: localhost
+  become_user: root
+  tasks:
+    - name: install packages
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - git
+        - gcc
+        - make
+        - gzip
+        - wget
+        - telnet
