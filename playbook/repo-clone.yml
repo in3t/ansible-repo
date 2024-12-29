@@ -5,5 +5,5 @@
   tasks: 
     - name: clone git repo in localhost
       ansible.builtin.git: 
-        repo: https://github.com/sateesh5/mslearn-tailspin-spacegame-web.git
+        repo: https://github.com/sateesh5/ansible-repo.git
         dest: /home/semaphore/git
