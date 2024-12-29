@@ -10,8 +10,4 @@
         state: present
       with_items:
         - git
-        - gcc
-        - make
-        - gzip
         - wget
-        - telnet
