@@ -2,9 +2,12 @@
 - name:  this playbook for backup demo
   hosts: localhost
   become_user: root
+  vars: 
+    src: /tmp/testfile.txt
+    dest: /tmp/test
   tasks: 
     - name: backup file with rsync 
       ansible.builtin.synchronize:
-        src: /tmp/testfile.txt
-        dest: /tmp/test
+        src: "{{ src }}"
+        dest: "{{ dest }}"
         mode: pull
