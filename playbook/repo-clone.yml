@@ -6,4 +6,4 @@
     - name: clone git repo in localhost
       ansible.builtin.git: 
         repo: https://github.com/sateesh5/ansible-repo.git
-        dest: /home/semaphore/git
+        dest: /home/semaphore/ansible
