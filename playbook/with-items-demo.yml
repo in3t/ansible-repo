@@ -4,7 +4,7 @@
   become_user: root
   tasks:
     - name: install packages
-      community.general.apk::
+      ansible.builtin.apk::
         update_cache: yes
         name: "{{ item }}"
         state: present
