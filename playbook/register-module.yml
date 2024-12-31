@@ -10,5 +10,5 @@
        ansible.builtin.debug:
          vars: server_uptime
      - name: show server_uptime
-       ansible.buitlin.debug:
+       ansible.builtin.debug:
         msg: "{{ server_uptime.stdout }}"
