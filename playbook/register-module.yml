@@ -5,10 +5,10 @@
   tasks: 
      - name: registger playbook demo 
        ansible.builtin.command: uptime
-       register: server_log
+       register: server_uptime
      - name: Inspect the server up time
        ansible.builtin.debug:
-         var: server_uptime
+         vars: server_uptime
      - name: show server_uptime
        ansible.builtin.debug:
         msg: "{{ server_uptime.stdout }}"
