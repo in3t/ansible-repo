@@ -8,7 +8,7 @@
        register: server_log
      - name: Inspect the server up time
        ansible.builtin.debug:
-         vars: server_uptime
+         var: server_uptime
      - name: show server_uptime
        ansible.builtin.debug:
         msg: "{{ server_uptime.stdout }}"
