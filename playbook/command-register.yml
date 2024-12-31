@@ -1,0 +1,13 @@
+---
+- name: command module demo playbook
+  hosts: localhost
+  become_user: root
+  tasks:
+    - name: check up time 
+      ansible.builtin.command: uptime
+      register: command_out
+
+    - name: print uptime 
+      ansible.builtin.debug:
+        var: command_out
+
