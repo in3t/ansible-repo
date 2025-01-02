@@ -1,10 +1,9 @@
 ---
 - name: update packages
   hosts: localhost
-  become: true
+  become_user: root
   tasks:
-    - name: install packages
-      apk:
+    - apk:
         update_cache: yes
         
         
