@@ -10,4 +10,5 @@
         state: present
       with_items:
         - git
+        - wget
         
