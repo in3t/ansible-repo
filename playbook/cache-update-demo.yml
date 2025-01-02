@@ -5,5 +5,10 @@
   tasks:
     - apk:
         update_cache: yes
+      ignore_errors: true
+    - name: create empty file
+      ansible.builtin.file:
+        dest: /tmp/testfile.txt
+        state: touch
         
         
