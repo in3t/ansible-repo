@@ -1,6 +1,6 @@
 ---
 - name: debug module demo
-  hosts: localhost
+  hosts: all
     #  gather_facts: no
   become: true
   tasks:
