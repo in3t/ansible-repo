@@ -1,6 +1,7 @@
 - name: install git using ansible
   hosts: all
   become: true
+  remote_user: root
   tasks:
     - name: install git
       yum:
