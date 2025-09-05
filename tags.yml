@@ -2,6 +2,7 @@
 - name: creating file in tmp location
   hosts: all
   become: true
+  gather_facts: false
   tasks:
     - name: create a file in tmp location
       ansible.builtin.file:
