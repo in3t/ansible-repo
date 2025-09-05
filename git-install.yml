@@ -1,0 +1,15 @@
+- name: install git using ansible
+  hosts: all
+  become: true
+  tasks:
+    - name: install git
+      yum:
+        name: git
+        state: present
+    - name: print git version
+      command: git --version
+      register: git_version
+    - name: print git version
+      debug:
+        var: git_version.stdout
+
