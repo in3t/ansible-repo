@@ -1,6 +1,6 @@
 ---
 - name: creating file in tmp location
-  hosts: 192.168.33.10
+  hosts: all
   become: true
   tasks:
     - name: create a file in tmp location
