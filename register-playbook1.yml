@@ -1,0 +1,12 @@
+- name: register playbook
+  hosts: all
+  tasks:
+    - name: run a command
+      ansible.builtin.shell: cat /etc/hosts | wc -l
+      register: output
+    - name: display the output
+      ansible.builtin.debug:
+        var: output
+    - name: show the result
+      ansible.builtin.debug:
+        var: output.stdout
