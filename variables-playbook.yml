@@ -2,7 +2,15 @@
   hosts: all
   vars:
     fav_color: "blue"
+    fav_car: "BMW"
+    fav_country: "India"
   tasks:
     - name: print the favorite color
       ansible.builtin.debug:
         msg: "My favorite color is {{ fav_color }}"
+    - name: print the favorite car
+      ansible.builtin.debug:
+        msg: "My favorite car is {{ fav_car }}"
+    - name: print the favorite country
+      ansible.builtin.debug:
+        msg: "My favorite country is {{ fav_country }}"
