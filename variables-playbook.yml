@@ -1,0 +1,8 @@
+- name: working with variables
+  hosts: all
+  vars:
+    fav_color: "blue"
+  tasks:
+    - name: print the favorite color
+      ansible.builtin.debug:
+        msg: "My favorite color is {{ fav_color }}"
